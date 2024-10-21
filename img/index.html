@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card-product</title>
+</head>
+<style>
+    .card{
+        width: 230px;
+        border: 2px double black;
+        background-color: rgb(250, 218, 218);
+        border-radius: 10px;
+        margin: 20px auto;
+    }
+    .product-card{
+        height: 150px;
+        display: block;
+        margin: 20px auto;
+    }
+    .product-title{
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .product-price{
+        margin: 10px;
+        padding: 0;
+        text-align: center;
+    }
+    .buy-now{
+        background-color: rgb(39, 26, 3);
+        color: wheat;
+        border: none;
+        padding: 5px 20px;
+        display: block;
+        margin: 10px auto;
+        border-radius: 10px;
+        cursor: pointer;
+       
+    }
+    .buy-now:hover{
+        box-shadow: 1px 2px 7px 2px rgb(158, 125, 97);
+        transition: 0.5s;
+    }
+    .quality-icon{
+        height: 20px;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+    .container-quality{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin: 10px 0;
+    }
+    .text{
+        text-align: center;
+    }
+</style>
+<body>
+    <h1 class="text">Product-card</h1>
+    <div class="card" id="card">
+        <img src="./images.jpg" alt="shoes" class="product-card"/>
+        <h2 class="product-title">Round Toe Solid Marvin Shoes</h2>
+        <p class="product-price">Price:₹500/-</p>
+        <div class="container-quality">
+            <img src="./add.png" alt="" class="quality-icon" onclick="inc()"/>
+            <span id="quantity">1</span>
+            <img src="./minus.png" alt=""class="quality-icon" onclick="dec()">
+        </div>
+        
+        <button onclick="changeColor()" class="buy-now">Buy Now</button>
+    </div>
+    <script>
+        const quantityelement = document.getElementById('quantity'); 
+        function inc(){
+          let quantity = parseInt(quantityelement.innerText);
+          quantityelement.innerText = ++quantity;
+        }
+        function dec(){
+            let quantity = parseInt(quantityelement.innerText);
+            if(quantity>1){
+                quantityelement.innerText = --quantity;
+            }
+        }
+    </script>
+</body>
+</html>
